@@ -7,9 +7,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class ConstructorInjectionDemo {
+
     public static void main(String[] args) {
+
         ApplicationContext ctx = new AnnotationConfigApplicationContext(LaptopConfiguration.class);
+
         Laptop laptop = ctx.getBean(Laptop.class);
+
         System.out.println(laptop.printLaptopConfiguration());
     }
 }

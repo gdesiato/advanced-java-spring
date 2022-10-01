@@ -8,6 +8,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Processor {
+
     private Integer core;
     private String name;
 }

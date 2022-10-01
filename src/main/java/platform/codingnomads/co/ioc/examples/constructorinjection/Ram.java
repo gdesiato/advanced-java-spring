@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 @ToString
-public class OS {
+public class Ram {
 
-    private String name;
+    private String type;
+    private int size;
+
 }
