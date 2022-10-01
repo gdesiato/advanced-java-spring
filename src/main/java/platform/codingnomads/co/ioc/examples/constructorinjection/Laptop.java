@@ -10,8 +10,9 @@ public class Laptop {
     private Processor processor;
     private OS os;
 
-    //new component
+    //new components
     private Ram ram;
+    private HardDrive drive;
 
     // these fields are being injected from the ApplicationContext
     // if a class contains only one constructor (as this one does), the use of @Autowired is optional
@@ -22,9 +23,17 @@ public class Laptop {
         this.ram = ram;
     }
 
+    //Setter injection
+    @Autowired
+    public void setDrive(HardDrive drive) {
+        this.drive = drive;
+    }
+
+
     public String printLaptopConfiguration() {
         return "Processor: " + processor.getCore() + " core " + processor.getName() +
                 "\nOS: " + os.getName() +
-                "\n Ram: " + ram.getType() + "Size: " + ram.getSize();
+                "\nRam: " + ram.getType() + "Size: " + ram.getSize() +
+                "\nHard Drive: " + drive.getHdSize();
     }
 }

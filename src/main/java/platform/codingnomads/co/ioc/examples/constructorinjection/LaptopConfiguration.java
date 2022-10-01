@@ -22,4 +22,10 @@ public class LaptopConfiguration {
     public Ram ram() {
         return new Ram("DRAM", 8);
     }
+
+    @Bean
+    public HardDrive drive() {
+        return new HardDrive(500);
+    }
+
 }
