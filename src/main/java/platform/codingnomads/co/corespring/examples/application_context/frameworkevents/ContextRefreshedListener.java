@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 // @Component tells Spring that this is a bean it should register
 @Component
 public class ContextRefreshedListener implements ApplicationListener<ContextRefreshedEvent> {
+
     @Override
     public void onApplicationEvent(@NonNull ContextRefreshedEvent contextRefreshedEvent) {
         System.out.println("ContextRefreshedEvent has fired!!");
