@@ -27,7 +27,7 @@ public class CodingNomad {
     public String createAwesomeSoftware() {
         return MessageFormat
                 .format("This Coding Nomad is creating awesome software using, " +
-                                "IDE: ({0}:{1}), JDK: ({2}:{3}), Framework: ({4}:{5}), Computer: ({6}), Language({7})",
+                                "IDE: ({0}:{1}), JDK: ({2}:{3}), Framework: ({4}:{5}), Computer: ({6}), Language: ({7})",
                         ide.getName(),
                         ide.getVersion(),
                         jdk.getName(),

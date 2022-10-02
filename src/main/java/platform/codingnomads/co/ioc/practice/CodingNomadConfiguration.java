@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("platform.codingnomads.co.ioc.lab.initial")
+@ComponentScan("platform.codingnomads.co.ioc.practice")
 public class CodingNomadConfiguration {
 
     @Bean
