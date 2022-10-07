@@ -8,8 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class CoreLabApplication {
     public static void main(String[] args) {
 
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(
-                StudioConfig.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(StudioConfig.class);
 
         Microphone microphone = ctx.getBean(Microphone.class);
 

@@ -7,7 +7,7 @@ import platform.codingnomads.co.corespring.lab.AudioInterface;
 import platform.codingnomads.co.corespring.lab.Microphone;
 
 @Configuration
-@ImportResource({"classpath*:xml-config/records.xml"})
+@ImportResource({"classpath*:xml-config/audio.xml"})
 public class StudioConfig {
 
     @Bean
@@ -15,9 +15,9 @@ public class StudioConfig {
         return new Microphone("Neumann", "U87");
     }
 
-    @Bean
-    public AudioInterface audioInterface() {
-        return new AudioInterface("RME", "UFX-II");
-    }
+//    @Bean
+//    public AudioInterface audioInterface() {
+//        return new AudioInterface("RME", "UFX-II");
+//    }
 
 }
