@@ -42,29 +42,39 @@ public class SpringDataLab implements CommandLineRunner {
 
 
                 Arrays.asList(
+                        Area.builder().code("D").build(),
+                        Area.builder().code("E").build(),
+                        Area.builder().code("F").build(),
                         Area.builder().code("G").build(),
                         Area.builder().code("H").build(),
-                        Area.builder().code("Y").build(),
-                        Area.builder().code("Z").build(),
-                        Area.builder().code("A").build(),
-                        Area.builder().code("B").build(),
-                        Area.builder().code("C").build(),
-                        Area.builder().code("D").build()
+                        Area.builder().code("I").build(),
+                        Area.builder().code("L").build()
                 ).forEach(area -> {
                     if (!areaRepository.existsByCode(area.getCode())){
                         areaRepository.save(area);
                     }
                 });
 
-        Area a = areaRepository.findAreaByCode("A");
-        Area b = areaRepository.findAreaByCode("B");
+        Area a = areaRepository.findAreaByCode("D");
+        Area b = areaRepository.findAreaByCode("E");
+        Area c = areaRepository.findAreaByCode("F");
+        Area d = areaRepository.findAreaByCode("G");
+        Area e = areaRepository.findAreaByCode("H");
+        Area f = areaRepository.findAreaByCode("I");
 
-       // Route route = Route.builder().origin(a).destination(b).build();
+        // Route route = Route.builder().origin(a).destination(b).build();
+        Route route1 = new Route(a, b);
+        routeRepository.save(route1);
 
-        Route route = new Route(a, b);
+        Route route2 = new Route(c, d);
+        routeRepository.save(route2);
 
-        routeRepository.save(route);
+        Route route3 = new Route(e, f);
+        routeRepository.save(route3);
 
+
+        System.out.println(routeRepository.findRouteByCode("G-H"));
+        System.out.println(routeRepository.findRouteByCode("D-E"));
 
 
     }
