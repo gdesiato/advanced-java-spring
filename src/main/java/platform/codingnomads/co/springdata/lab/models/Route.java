@@ -39,4 +39,10 @@ public class Route implements Serializable {
             foreignKey = @ForeignKey(name = "fk_routes_destination_area_id")
     )
     private Area destination;
+
+    public Route(Area origin, Area destination) {
+        this.origin = origin;
+        this.destination = destination;
+        this.code = origin.getCode() + "-" + destination.getCode();
+    }
 }
