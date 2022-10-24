@@ -5,9 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import platform.codingnomads.co.springdata.lab.models.Area;
-import platform.codingnomads.co.springdata.lab.models.Route;
 import platform.codingnomads.co.springdata.lab.repositories.AreaRepository;
 import platform.codingnomads.co.springdata.lab.repositories.RouteRepository;
+import platform.codingnomads.co.springdata.lab_complete.models.Route;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,33 +48,52 @@ public class SpringDataLab implements CommandLineRunner {
                         Area.builder().code("G").build(),
                         Area.builder().code("H").build(),
                         Area.builder().code("I").build(),
-                        Area.builder().code("L").build()
+                        Area.builder().code("L").build(),
+                        Area.builder().code("M").build()
                 ).forEach(area -> {
                     if (!areaRepository.existsByCode(area.getCode())){
                         areaRepository.save(area);
                     }
                 });
 
-        Area a = areaRepository.findAreaByCode("D");
-        Area b = areaRepository.findAreaByCode("E");
-        Area c = areaRepository.findAreaByCode("F");
-        Area d = areaRepository.findAreaByCode("G");
-        Area e = areaRepository.findAreaByCode("H");
-        Area f = areaRepository.findAreaByCode("I");
+//        Area a = areaRepository.findAreaByCode("D");
+//        Area b = areaRepository.findAreaByCode("E");
+//        Area c = areaRepository.findAreaByCode("F");
+//        Area d = areaRepository.findAreaByCode("G");
+//        Area e = areaRepository.findAreaByCode("H");
+//        Area f = areaRepository.findAreaByCode("I");
+
+
+//                    Arrays.asList(
+//                            Route.builder().origin(areaRepository.findAreaByCode("D"))
+//                                    .destination(areaRepository.findAreaByCode("E")).build(),
+//                            Route.builder().origin(areaRepository.findAreaByCode("F"))
+//                                    .destination(areaRepository.findAreaByCode("G")).build(),
+//                            Route.builder().origin(areaRepository.findAreaByCode("H"))
+//                                    .destination(areaRepository.findAreaByCode("I")).build(),
+//                            Route.builder().origin(areaRepository.findAreaByCode("L"))
+//                                    .destination(areaRepository.findAreaByCode("M")).build()
+//                    ).forEach(route -> {
+//                        if (!routeRepository.existsByCode(route.getCode())){
+//                            routeRepository.save(route);
+//                        }
+//                    });
+
+
+
 
         // Route route = Route.builder().origin(a).destination(b).build();
-        Route route1 = new Route(a, b);
-        routeRepository.save(route1);
+//        Route route1 = new Route(a, b);
+//        routeRepository.save(route1);
+//
+//        Route route2 = new Route(c, d);
+//        routeRepository.save(route2);
+//
+//        Route route3 = new Route(e, f);
+//        routeRepository.save(route3);
 
-        Route route2 = new Route(c, d);
-        routeRepository.save(route2);
 
-        Route route3 = new Route(e, f);
-        routeRepository.save(route3);
-
-
-        System.out.println(routeRepository.findRouteByCode("G-H"));
-        System.out.println(routeRepository.findRouteByCode("D-E"));
+        //System.out.println(routeRepository.findRouteByParam("D-E"));
 
 
     }
