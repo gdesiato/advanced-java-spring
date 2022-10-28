@@ -24,7 +24,7 @@ public class Route implements Serializable {
     @Column(unique = true)
     private String code;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(
             name = "origin_area_id",
             nullable = false,
