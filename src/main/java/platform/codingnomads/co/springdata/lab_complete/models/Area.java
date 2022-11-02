@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @Table(name = "areas")
 @Builder
-public class Area implements Serializable {
+public class Area extends platform.codingnomads.co.springdata.lab.models.Area implements Serializable {
 
     // this field (and implementing Serializable) is not required here,
     // but added for an early introduction to the concept

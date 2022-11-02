@@ -7,12 +7,17 @@ import platform.codingnomads.co.springdata.lab.models.Route;
 import java.util.List;
 
 
-public interface RouteRepository1 extends JpaRepository<Route,Long> {
+public interface RouteRepository extends JpaRepository<Route,Long> {
 
     //List<Route> findRoutesByOriginArea(Area origin);
     //List<Route> findRoutesByOriginCode(String originCode);
 
     Route findByCode(String code);
     boolean existsByCode(String code);
+    List<Route> findRoutesByOrigin(Area origin);
+    List<Route> findRoutesByOriginCode(String originCode);
+    List<Route> findByDestination_code(String code);
+    List<Route> findByOrigin_code(String code);
+    List<Route> findAllByCodeContaining(String code);
 
 }
