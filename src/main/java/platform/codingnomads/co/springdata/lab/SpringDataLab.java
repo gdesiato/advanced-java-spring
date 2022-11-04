@@ -104,7 +104,7 @@ public class SpringDataLab implements CommandLineRunner {
             pointOfInterestRepository.saveAll(
                     List.of(poi1, poi2, poi3, poi4, poi5, poi6)
                             .stream()
-                            .filter(poi -> !pointOfInterestRepository.existsById(poi.getId()))
+                            .filter(poi -> poi.getId() != null && !pointOfInterestRepository.existsById(poi.getId()))
                             .collect(Collectors.toList())
             );
         }
