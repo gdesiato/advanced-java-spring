@@ -18,6 +18,8 @@ public class HomeController {
         model.addAttribute("name", "Developer");
         model.addAttribute("language", "Java");
         model.addAttribute("framework", "Spring");
+        model.addAttribute("position", "remote");
+        model.addAttribute("city", "Boston");
         return "model-page";
     }
 

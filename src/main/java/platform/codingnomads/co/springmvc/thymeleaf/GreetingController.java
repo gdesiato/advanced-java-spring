@@ -9,6 +9,14 @@ import java.util.ArrayList;
 @Controller
 public class GreetingController {
 
+    @GetMapping({ "/practice" })
+    public String index1(Model model) {
+        model.addAttribute("name", "myself");
+        model.addAttribute("action", "practicing");
+        model.addAttribute("what", "method/endpoint creation");
+        return "practice";
+    }
+
     @GetMapping({ "/", "/index" })
     public String index(Model model) {
         model.addAttribute("name", "Spring Developer!");
