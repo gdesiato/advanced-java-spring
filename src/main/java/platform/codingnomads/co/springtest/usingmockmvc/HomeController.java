@@ -21,4 +21,19 @@ public class HomeController {
     public String greet() {
         return "Hello Back";
     }
+
+    @GetMapping("/test_1")
+    public String performTest_1(){
+        return "testing test 1";
+    }
+
+    @GetMapping("/test_2")
+    public String performTest_2(){
+        return "testing test 2";
+    }
+
+    @GetMapping("/test_3")
+    public String performTest_3(){
+        return "testing test 3";
+    }
 }

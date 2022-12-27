@@ -9,6 +9,7 @@ import platform.codingnomads.co.springtest.usingmockmvc.MockMvcMain;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -50,4 +51,44 @@ public class TestingWebServices {
                 //the view name expected is greeting
                 .andExpect(view().name("greeting"));
     }
+
+    @Test
+    public void nonExistentEndpoint() throws Exception {
+
+        mockMvc.perform(
+                        //set up a GET request to a non-existent endpoint
+                        get("/test_4")
+                )
+                //expect response status 404 NOT FOUND
+                .andExpect(status().isNotFound())
+                //expect JSON to be returned
+                .andExpect(content().contentType("application/json"));
+    }
+
+    @Test
+    public void confirmHeader() throws Exception {
+
+        mockMvc.perform(
+                        //create POST request
+                        post("/test_1")
+                                //add data to the request body
+                                .content("test_1 endpoint exists")
+                                //make the request HTTPS
+                                .secure(true)
+                )
+                //expect 200 OK
+                .andExpect(status().isOk())
+                //test if it is present
+                .andExpect(header().exists("Test_1 Header Confirmation"))
+                //test its value also
+                .andExpect(header().string("Test_1 Header Confirmation","headerValue"));
+    }
+
+//    @Test
+//    public void confirmBodyOfResponseIsEmpty() throws Exception {
+//
+//        mockMvc.perform(get("/custom/header/should/be/added"))
+//                .andExpect(status().isOk())
+//                .andExpect(content().string(emptyString()));
+//    }
 }
