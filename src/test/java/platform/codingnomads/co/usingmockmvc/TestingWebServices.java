@@ -55,14 +55,13 @@ public class TestingWebServices {
     @Test
     public void nonExistentEndpoint() throws Exception {
 
+        // mockMvc pretends to be a browser
         mockMvc.perform(
                         //set up a GET request to a non-existent endpoint
                         get("/test_4")
                 )
                 //expect response status 404 NOT FOUND
-                .andExpect(status().isNotFound())
-                //expect JSON to be returned
-                .andExpect(content().contentType("application/json"));
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -72,16 +71,16 @@ public class TestingWebServices {
                         //create POST request
                         post("/test_1")
                                 //add data to the request body
-                                .content("test_1 endpoint exists")
+                                .content("application/json")
                                 //make the request HTTPS
                                 .secure(true)
                 )
                 //expect 200 OK
                 .andExpect(status().isOk())
                 //test if it is present
-                .andExpect(header().exists("Test_1 Header Confirmation"))
+                .andExpect(header().exists("X-header"))
                 //test its value also
-                .andExpect(header().string("Test_1 Header Confirmation","headerValue"));
+                .andExpect(header().string("X-header", "header value 1"));
     }
 
 //    @Test

@@ -11,7 +11,6 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class); //where do SpringApplication come from?
 
-        TestMain testMain = new TestMain();
-        testMain.printConsole(); //it prints no matter the profile
+
     }
 }
