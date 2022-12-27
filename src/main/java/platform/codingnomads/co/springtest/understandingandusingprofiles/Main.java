@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Profile;
 public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class);
+        SpringApplication.run(Main.class); //where do SpringApplication come from?
+
+        TestMain testMain = new TestMain();
+        testMain.printConsole(); //it prints no matter the profile
     }
 }

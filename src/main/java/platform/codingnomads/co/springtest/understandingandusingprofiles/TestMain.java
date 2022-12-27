@@ -1,8 +1,10 @@
 package platform.codingnomads.co.springtest.understandingandusingprofiles;
 
+import com.querydsl.jpa.impl.JPAUpdateClause;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
@@ -30,5 +32,11 @@ public class TestMain implements CommandLineRunner {
                 .intensity(4)
                 .sugar(true)
                 .build());
+    }
+
+    @Profile("simply_print")
+    @Bean
+    public void printConsole(){
+        System.out.println("This method simply prints a String");
     }
 }
