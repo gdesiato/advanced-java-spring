@@ -1,5 +1,6 @@
 package platform.codingnomads.co.springtest.mockingmethods;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import platform.codingnomads.co.springtest.mockingmethods.models.Recipe;
 import platform.codingnomads.co.springtest.mockingmethods.models.Review;
 import platform.codingnomads.co.springtest.mockingmethods.models.Step;
 import platform.codingnomads.co.springtest.mockingmethods.repositories.RecipeRepo;
+
 
 import java.util.Set;
 
@@ -78,4 +80,5 @@ public class RecipeMainTest implements CommandLineRunner {
 
         recipeRepo.save(recipe4);
     }
+
 }
