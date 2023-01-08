@@ -121,5 +121,29 @@ public class MovieControllerTest {
 
     }
 
+    /* TASK 4
+    Create new endpoint in MovieController (and accompanying methods in MovieService, etc.)
+    that will return a list of movies based on a minimum rating.
+     */
+    @Test
+    public void testGetMoviesByRatingSuccess() throws Exception {
 
+        mockMvc.perform(get("/all/rating"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"));
+
+    }
+
+    @Test
+    public void testGetMoviesByRatingFailure() throws Exception {
+        Double rating = 0.0;
+        if (rating < 7) {
+            mockMvc.perform(get("/all/rating" + rating))
+                    .andDo(print())
+                    .andExpect(status().isNotFound()) //404
+                    .andExpect(content().string(containsString("")));
+
+        }
+    }
 }

@@ -8,6 +8,7 @@ import platform.codingnomads.co.springtest.lab.entity.Movie;
 import platform.codingnomads.co.springtest.lab.service.MovieService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
@@ -19,5 +20,11 @@ public class MovieController {
     @GetMapping("/all")
     public List<Movie> getAllMovies() {
         return movieService.getAllMovies();
+    }
+
+    @GetMapping("/all/rating")
+    public Optional<Movie> getMoviesByRating() {
+        Double rating = 0.0;
+        return movieService.getMoviesByRating(rating);
     }
 }

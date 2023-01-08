@@ -7,6 +7,7 @@ import platform.codingnomads.co.springtest.lab.entity.Movie;
 import platform.codingnomads.co.springtest.lab.repository.MovieRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getMoviesByRating(Double rating) {
-        return null;
+    public Optional<Movie> getMoviesByRating(Double rating) {
+        return movieRepository.findById(rating.longValue());
     }
 }
