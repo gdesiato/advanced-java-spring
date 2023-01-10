@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import platform.codingnomads.co.TestUtil;
 import platform.codingnomads.co.springtest.lab.SpringTestLab;
 import platform.codingnomads.co.springtest.lab.entity.Movie;
+import platform.codingnomads.co.springtest.lab.repository.MovieRepository;
 import platform.codingnomads.co.springtest.lab.service.MovieService;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class MovieControllerTest {
 
     @MockBean
     MovieService movieService;
+
+    @Autowired
+    MovieRepository movieRepository;
 
     /* TASK 1
     should test the return result of the /all endpoint.
