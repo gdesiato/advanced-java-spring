@@ -22,7 +22,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Optional<Movie> getMoviesByRating(Double rating) {
-        return movieRepository.findById(rating.longValue());
+    public Optional<List<Movie>> getMoviesByRating(Double rating) {
+        return movieRepository.findMoviesByRating(rating.longValue());
     }
 }

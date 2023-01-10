@@ -1,7 +1,9 @@
 package platform.codingnomads.co.springtest.lab.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import platform.codingnomads.co.springtest.lab.entity.Movie;
@@ -22,9 +24,13 @@ public class MovieController {
         return movieService.getAllMovies();
     }
 
-    @GetMapping("/all/rating")
-    public Optional<Movie> getMoviesByRating() {
-        Double rating = 0.0;
-        return movieService.getMoviesByRating(rating);
+    @GetMapping("/all/rating/{rating}")
+    public ResponseEntity<List<Movie>> getMoviesByRating(@PathVariable double rating) {
+        Optional<List<Movie>> moviesByRating = movieService.getMoviesByRating(rating);
+        if (moviesByRating.isPresent()){
+            return ResponseEntity.ok(moviesByRating.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

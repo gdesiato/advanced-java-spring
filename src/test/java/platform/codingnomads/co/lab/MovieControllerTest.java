@@ -45,7 +45,7 @@ public class MovieControllerTest {
         mockMvc.perform(get("/all"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.valueOf("text/html;charset=UTF-8")));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
 
     }
 
@@ -53,7 +53,7 @@ public class MovieControllerTest {
     public void testGetAllMoviesFailure() throws Exception {
         final long rating = 400;
 
-        mockMvc.perform(get("/all/rating" + rating))
+        mockMvc.perform(get("/all/rating/" + rating))
                 .andDo(print())
                 .andExpect(status().isNotFound()) //404
                 .andExpect(content().string(containsString("")));

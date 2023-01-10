@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface MovieService {
     List<Movie> getAllMovies();
-    Optional<Movie> getMoviesByRating(Double rating);
+    Optional<List<Movie>> getMoviesByRating(Double rating);
 }
