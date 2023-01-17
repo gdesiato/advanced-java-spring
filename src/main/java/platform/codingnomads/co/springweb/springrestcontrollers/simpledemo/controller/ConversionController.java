@@ -33,6 +33,6 @@ public class ConversionController {
         for (int i = reverseOrd.length - 1; i >= 0; i--) {
             rev += text.charAt(i);
         }
-        return text;
+        return rev;
     }
 }

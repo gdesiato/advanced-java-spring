@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(path = "/1", method = RequestMethod.GET)
     String get() { return "Hello from get"; }
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(path = "/2", method = RequestMethod.DELETE)
     String delete() { return "Hello from delete"; }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/3", method = RequestMethod.POST)
     String post() { return "Hello from post"; }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(path = "/4", method = RequestMethod.PUT)
     String put() {
         return "Hello from put";
     }
 
-    @RequestMapping(method = RequestMethod.PATCH)
+    @RequestMapping(path = "/5", method = RequestMethod.PATCH)
     String patch() {
         return "Hello from patch";
     }
